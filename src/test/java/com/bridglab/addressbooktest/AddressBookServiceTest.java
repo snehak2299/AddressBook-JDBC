@@ -22,4 +22,9 @@ public class AddressBookServiceTest {
         AddressBookService addressBookService=new AddressBookService();
         addressBookService.updateAddressBookDataUsingStatement("deepika","dipika");
     }
+	 @Test
+	    public void showEntries_AddedBetween_mentionedDateRange(){
+	        AddressBookService addressBookService=new AddressBookService();
+	        addressBookService.showEntriesBetweenStartdateToMantionedDate("2016-01-01","2020-12-01");
+	    }
 }
