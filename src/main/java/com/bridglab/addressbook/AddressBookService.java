@@ -92,5 +92,51 @@ public class AddressBookService {
 	            e.printStackTrace();
 	        }
 	    }
+	    public void retrieveDataByCity(String city) {
+	        String sql= String.format("select * from address_book where city='%s';",city);
+	         try {
+	             Connection connection=this.getConnection();
+	             Statement statement=connection.createStatement();
+	             ResultSet resultSet=statement.executeQuery(sql);
+	             while (resultSet.next()){
+	                 System.out.println(
+	                         resultSet.getString(1)+" "+
+	                                 resultSet.getString(2)+" "+
+	                                 resultSet.getString(3)+" "+
+	                                 resultSet.getString(4)+" "+
+	                                 resultSet.getString(5)+" "+
+	                                 resultSet.getString(6)+" "+
+	                                 resultSet.getString(7));
+	             }
+
+	         }
+	         catch (SQLException e)
+	         {
+	             e.printStackTrace();
+	         }
+	     }
+	    public void retrieveDataByState(String state) {
+	        String sql= String.format("select * from address_book where state='%s';",state);
+	         try {
+	             Connection connection=this.getConnection();
+	             Statement statement=connection.createStatement();
+	             ResultSet resultSet=statement.executeQuery(sql);
+	             while (resultSet.next()){
+	                 System.out.println(
+	                         resultSet.getString(1)+" "+
+	                                 resultSet.getString(2)+" "+
+	                                 resultSet.getString(3)+" "+
+	                                 resultSet.getString(4)+" "+
+	                                 resultSet.getString(5)+" "+
+	                                 resultSet.getString(6)+" "+
+	                                 resultSet.getString(7));
+	             }
+
+	         }
+	         catch (SQLException e)
+	         {
+	             e.printStackTrace();
+	         }
+	     }
 
  }

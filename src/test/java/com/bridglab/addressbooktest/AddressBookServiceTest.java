@@ -27,4 +27,14 @@ public class AddressBookServiceTest {
 	        AddressBookService addressBookService=new AddressBookService();
 	        addressBookService.showEntriesBetweenStartdateToMantionedDate("2016-01-01","2020-12-01");
 	    }
+	 @Test
+	    public void showContacts_ByCity_whereCityNameIsMentioned(){
+	        AddressBookService addressBookService=new AddressBookService();
+	        addressBookService.retrieveDataByCity("kalyan");
+	    } 
+	 @Test
+	    public void showContacts_ByState_whereStateNameIsMentioned(){
+	        AddressBookService addressBookService=new AddressBookService();
+	        addressBookService.retrieveDataByState("US");
+	    } 
 }
