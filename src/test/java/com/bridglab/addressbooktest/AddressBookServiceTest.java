@@ -1,6 +1,7 @@
 package com.bridglab.addressbooktest;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import org.junit.Test;
 
@@ -36,5 +37,10 @@ public class AddressBookServiceTest {
 	    public void showContacts_ByState_whereStateNameIsMentioned(){
 	        AddressBookService addressBookService=new AddressBookService();
 	        addressBookService.retrieveDataByState("US");
-	    } 
+	    }
+	 @Test
+	    public void addNewEnter_fromJdbc_andInsertIntoTable() throws SQLException {
+	        AddressBookService addressBookDBService=new AddressBookService();
+	        addressBookDBService.addNewEnteryToAddressbook("harshal","jadhav","balaji garden","kopar","MH",421203,808012456,"hj@gmail.com","friends", null);
+	    }
 }

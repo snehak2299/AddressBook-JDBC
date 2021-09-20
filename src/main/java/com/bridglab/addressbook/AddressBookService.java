@@ -1,6 +1,7 @@
 package com.bridglab.addressbook;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -138,5 +139,33 @@ public class AddressBookService {
 	             e.printStackTrace();
 	         }
 	     }
+		public void addNewEnteryToAddressbook( String firstName, String lastName, String address, String city,String state,
+				int zip, int phoneNumber, String email, String type, Date startdate) throws SQLException {
+			Connection connection = null;
+	        connection = this.getConnection();
+	        connection.setAutoCommit(false);
+	        Statement statement = connection.createStatement();
+	        String sql = String.format("insert into address_book(firstName,lastName,address,city,state,zip,phoneNumber,email,type,startdate)values('%s','%s','%s','%s','%s',%d ,%d,'%s','%s',DATE(NOW()));",firstName,lastName,address,city,state,zip,phoneNumber,email,type);
+	        try{
+	            int result = statement.executeUpdate(sql);
+
+	            readData();
+	            return;
+	        }
+	        catch (SQLException e)
+	        {
+	            e.printStackTrace();
+	            connection.rollback();
+	        }finally {
+	            if(connection!=null)
+	            {
+	                try {
+	                    connection.close();
+	                }catch (SQLException e){
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+		}
 
  }
