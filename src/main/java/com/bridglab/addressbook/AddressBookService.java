@@ -53,5 +53,20 @@ public class AddressBookService {
 	            e.printStackTrace();
 	        }
 	    }
+	    public int updateAddressBookDataUsingStatement(String newName,String oldName) {
+	        String sql=String.format("update address_book set firstName='%s' where firstName='%s';",newName,oldName);
+	        try(Connection connection=this.getConnection()) {
+	            Statement statement=connection.createStatement();
+	            int result=statement.executeUpdate(sql);
+	            readData();
+	            return statement.executeUpdate(sql);
+	        }
+	        catch (SQLException e)
+	        {
+	            e.printStackTrace();
+	        }
+
+	        return 0;
+	    }
 
  }

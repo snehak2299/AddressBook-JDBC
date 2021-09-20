@@ -17,4 +17,9 @@ public class AddressBookServiceTest {
         AddressBookService addressBookService=new AddressBookService();
         addressBookService.readData();
     }
+	@Test
+    public void updateFirstName_whenCoreectQueryWritten() {
+        AddressBookService addressBookService=new AddressBookService();
+        addressBookService.updateAddressBookDataUsingStatement("deepika","dipika");
+    }
 }
